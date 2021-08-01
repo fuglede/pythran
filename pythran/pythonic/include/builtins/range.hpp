@@ -69,4 +69,12 @@ namespace std
   };
 }
 
+/* type inference stuff  {*/
+#include "pythonic/include/types/combined.hpp"
+
+template <class E>
+struct __combined<E, pythonic::builtins::range> {
+  using type = typename __combined<E, pythonic::types::container<long>>::type;
+};
+
 #endif

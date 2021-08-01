@@ -85,6 +85,9 @@ def are_equal(s1):
     def test_update_list(self):
         self.run_test("def _update_list(b, c):\n a={1.}; a.update(b, c); return a", {1,3}, [1.,3.,4.,5.,6.] , _update_list=[Set[int],List[float]])
 
+    def test_update_range(self):
+        self.run_test("def _update_range(b):\n a=set(); a.update(range(b)); return a", 3, _update_range=[int])
+
     def test_update_empty_set_list(self):
         self.run_test("def _update_empty_set_list(b, c):\n a=set()\n a.update(b, c)\n return a", {1,3}, [1.,3.,4.,5.,6.] , _update_empty_set_list=[Set[int],List[float]])
 
